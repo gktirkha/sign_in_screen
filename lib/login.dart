@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'routes.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -112,7 +114,9 @@ class _LoginPageState extends State<LoginPage> {
                         fixedSize: Size(mediaQueryData.size.width / 2, 50),
                         backgroundColor: Colors.white,
                         foregroundColor: scaffColor),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, RouteName.home);
+                    },
                     child: Text(value ? "Sign in" : "Sign Up"),
                   ),
                 ),
