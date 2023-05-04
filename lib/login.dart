@@ -115,7 +115,7 @@ class _LoginPageState extends State<LoginPage> {
                         backgroundColor: Colors.white,
                         foregroundColor: scaffColor),
                     onPressed: () {
-                      Navigator.pushNamed(context, RouteName.home);
+                      Navigator.pushNamed(context, RouteName.loggedInHome);
                     },
                     child: Text(value ? "Sign in" : "Sign Up"),
                   ),

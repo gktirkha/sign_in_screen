@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'home.dart';
+import 'logged_in_home.dart';
 import 'login.dart';
 
 class RouteName {
   static const String login = "/login";
-  static const String home = "/home";
+  static const String loggedInHome = "/loggedInHome";
+  static const String blank = "/blank";
 }
 
 class GenerateRoute {
@@ -17,11 +18,10 @@ class GenerateRoute {
         return MaterialPageRoute(
           builder: (context) => const LoginPage(),
         );
-      case RouteName.home:
+      case RouteName.loggedInHome:
         return MaterialPageRoute(
-          builder: (context) => const Home(),
+          builder: (context) => const LoggedInHome(),
         );
-
       default:
         return MaterialPageRoute(
           builder: (context) => const LoginPage(),
