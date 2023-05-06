@@ -35,9 +35,8 @@ class _LoginPageState extends State<LoginPage> {
                   height: 200,
                   width: 100,
                   padding: const EdgeInsets.all(16),
-                  child: Center(
-                    child: SpinKitCubeGrid(color: Colors.deepPurple[900]!),
-                  ),
+                  child:
+                      const Center(child: SpinKitCubeGrid(color: Colors.white)),
                 ),
               );
             } else if (state is Error) {
@@ -72,7 +71,11 @@ class _LoginPageState extends State<LoginPage> {
                 },
               );
             } else if (state is LoggedIn) {
-              Navigator.pushReplacementNamed(context, RouteName.loggedInHome);
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                RouteName.loggedInHome,
+                (route) => false,
+              );
             }
           },
           builder: (context, state) {
