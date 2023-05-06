@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sign_in_screen/cubit/login_cubit.dart';
 
 import 'routes.dart';
 
@@ -11,10 +13,17 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      onGenerateRoute: GenerateRoute.generateRoute,
-      initialRoute: RouteName.login,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => LoginCubit(),
+        ),
+      ],
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        onGenerateRoute: GenerateRoute.generateRoute,
+        initialRoute: RouteName.login,
+      ),
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'fragments/accoun_fragment.dart';
+import '../fragments/accoun_fragment.dart';
 
 class LoggedInHome extends StatefulWidget {
   const LoggedInHome({super.key});
@@ -29,7 +29,12 @@ class _LoggedInHomeState extends State<LoggedInHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.menu))],
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.menu),
+          ),
+        ],
         backgroundColor: Colors.purple[900],
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),

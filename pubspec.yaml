@@ -7,8 +7,14 @@ environment:
   sdk: '>=2.19.6 <3.0.0'
 
 dependencies:
+  bloc: ^8.1.1
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.2
+  flutter_spinkit: ^5.2.0
+  http: ^0.13.6
+  meta: ^1.8.0
+
 
 dev_dependencies:
   flutter_test:

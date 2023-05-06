@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'logged_in_home.dart';
-import 'login.dart';
+import 'screen/logged_in_home.dart';
+import 'screen/login.dart';
 
 class RouteName {
   static const String login = "/login";
