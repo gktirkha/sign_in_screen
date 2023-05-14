@@ -29,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
           listener: (context, state) {
             if (state.isLoading == true) {
               LoadingScreen.instance()
-                  .show(context: context, text: "Loggimg in");
+                  .show(context: context, text: "Logging in");
             } else if (state.isLoading != true) {
               LoadingScreen.instance().hide();
             }
