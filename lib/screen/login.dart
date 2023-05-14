@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:sign_in_screen/cubit/login_cubit.dart';
-import 'package:sign_in_screen/routes.dart';
-import 'package:sign_in_screen/widgets/common.dart';
+
+import '../cubit/login_cubit.dart';
+import '../loading/loading.dart';
+import '../routes.dart';
+import '../widgets/common.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -26,20 +27,14 @@ class _LoginPageState extends State<LoginPage> {
       body: SafeArea(
         child: BlocConsumer<LoginCubit, LoginState>(
           listener: (context, state) {
-            if (state is Loading) {
-              showGeneralDialog(
-                barrierDismissible: false,
-                context: context,
-                pageBuilder: (context, animation, secondaryAnimation) =>
-                    Container(
-                  height: 200,
-                  width: 100,
-                  padding: const EdgeInsets.all(16),
-                  child:
-                      const Center(child: SpinKitCubeGrid(color: Colors.white)),
-                ),
-              );
-            } else if (state is Error) {
+            if (state.isLoading == true) {
+              LoadingScreen.instance()
+                  .show(context: context, text: "Loggimg in");
+            } else if (state.isLoading != true) {
+              LoadingScreen.instance().hide();
+            }
+
+            if (state is Error) {
               showGeneralDialog(
                 barrierDismissible: false,
                 context: context,
@@ -57,8 +52,11 @@ class _LoginPageState extends State<LoginPage> {
                               VSizedBox(mediaQueryData: mediaQueryData),
                               ElevatedButton(
                                 onPressed: () {
-                                  Navigator.pushNamedAndRemoveUntil(context,
-                                      RouteName.login, (route) => false);
+                                  Navigator.pop(
+                                    context,
+                                    // RouteName.login,
+                                    //  (route) => false
+                                  );
                                 },
                                 child: const Text("Retry"),
                               )

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sign_in_screen/cubit/login_cubit.dart';
+import 'cubit/login_cubit.dart';
 
 import 'routes.dart';
 

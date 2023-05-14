@@ -7,10 +7,10 @@ import 'package:meta/meta.dart';
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit() : super(LoginInitial());
+  LoginCubit() : super(const LoginInitial(isLoading: false));
 
   void login(String email, String password) async {
-    emit(Loading());
+    emit(const LoginInitial(isLoading: true));
     try {
       http.Response res = await http.post(
         Uri.parse("https://reqres.in/api/login"),
@@ -29,9 +29,9 @@ class LoginCubit extends Cubit<LoginState> {
         throw Exception("Failed to login");
       }
 
-      emit(LoggedIn());
+      emit(const LoggedIn(isLoading: false));
     } catch (e) {
-      emit(Error(message: e.toString()));
+      emit(Error(message: e.toString(), isLoading: false));
     }
   }
 }
