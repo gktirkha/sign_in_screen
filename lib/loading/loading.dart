@@ -38,7 +38,25 @@ class LoadingScreen {
     textStream.add(text);
     final state = Overlay.of(context);
     final size = MediaQuery.of(context).size;
-    final overlay = OverlayEntry(
+    final overlay = loadingOverlay(size, textStream);
+
+    state.insert(overlay);
+
+    return LoadingScreenController(
+      close: () {
+        textStream.close();
+        overlay.remove();
+        return true;
+      },
+      update: (text) {
+        textStream.add(text);
+        return true;
+      },
+    );
+  }
+
+  OverlayEntry loadingOverlay(Size size, StreamController<String> textStream) {
+    return OverlayEntry(
       builder: (context) {
         return Material(
           color: Colors.black.withAlpha(150),
@@ -81,20 +99,6 @@ class LoadingScreen {
             ),
           ),
         );
-      },
-    );
-
-    state.insert(overlay);
-
-    return LoadingScreenController(
-      close: () {
-        textStream.close();
-        overlay.remove();
-        return true;
-      },
-      update: (text) {
-        textStream.add(text);
-        return true;
       },
     );
   }
