@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'cubit/login_cubit.dart';
 
+import 'cubit/login_cubit.dart';
 import 'routes.dart';
 
 void main() {
@@ -22,7 +22,6 @@ class MainApp extends StatelessWidget {
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
         onGenerateRoute: GenerateRoute.generateRoute,
-        initialRoute: RouteName.login,
       ),
     );
   }
