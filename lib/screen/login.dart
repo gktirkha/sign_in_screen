@@ -35,39 +35,7 @@ class _LoginPageState extends State<LoginPage> {
             }
 
             if (state is Error) {
-              showGeneralDialog(
-                barrierDismissible: false,
-                context: context,
-                pageBuilder: (context, animation, secondaryAnimation) {
-                  return Center(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: Material(
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(state.message),
-                              VSizedBox(mediaQueryData: mediaQueryData),
-                              ElevatedButton(
-                                onPressed: () {
-                                  Navigator.pop(
-                                    context,
-                                    // RouteName.login,
-                                    //  (route) => false
-                                  );
-                                },
-                                child: const Text("Retry"),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  );
-                },
-              );
+              showErrorDialog(context, state, mediaQueryData);
             } else if (state is LoggedIn) {
               Navigator.pushNamedAndRemoveUntil(
                 context,
@@ -202,6 +170,43 @@ class _LoginPageState extends State<LoginPage> {
           },
         ),
       ),
+    );
+  }
+
+  Future<Object?> showErrorDialog(
+      BuildContext context, Error state, MediaQueryData mediaQueryData) {
+    return showGeneralDialog(
+      barrierDismissible: false,
+      context: context,
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return Center(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Material(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(state.message),
+                    VSizedBox(mediaQueryData: mediaQueryData),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(
+                          context,
+                          // RouteName.login,
+                          //  (route) => false
+                        );
+                      },
+                      child: const Text("Retry"),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
