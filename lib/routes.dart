@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'screen/logged_in_home.dart';
 import 'screen/login.dart';
 
-class RouteName {
+abstract class RouteName {
   static const String login = "/login";
   static const String loggedInHome = "/loggedInHome";
   static const String blank = "/blank";
 }
 
-class GenerateRoute {
+abstract class GenerateRoute {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final route = settings.name;
 
