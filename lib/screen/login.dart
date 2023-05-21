@@ -106,9 +106,9 @@ class _LoginPageState extends State<LoginPage> {
                                   child: Text(
                                     "Sign up",
                                     style: TextStyle(
-                                        color: !value
-                                            ? Colors.white
-                                            : Colors.grey),
+                                      color:
+                                          !value ? Colors.white : Colors.grey,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -174,7 +174,10 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<Object?> showErrorDialog(
-      BuildContext context, Error state, MediaQueryData mediaQueryData) {
+    BuildContext context,
+    Error state,
+    MediaQueryData mediaQueryData,
+  ) {
     return showGeneralDialog(
       barrierDismissible: false,
       context: context,
@@ -194,8 +197,6 @@ class _LoginPageState extends State<LoginPage> {
                       onPressed: () {
                         Navigator.pop(
                           context,
-                          // RouteName.login,
-                          //  (route) => false
                         );
                       },
                       child: const Text("Retry"),

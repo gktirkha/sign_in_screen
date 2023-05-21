@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import 'loading_controller.dart';
 
@@ -78,7 +79,7 @@ class LoadingScreen {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const SizedBox(height: 10),
-                    const CircularProgressIndicator(),
+                    const SpinKitCubeGrid(color: Colors.blue),
                     const SizedBox(height: 20),
                     StreamBuilder(
                       stream: textStream.stream,

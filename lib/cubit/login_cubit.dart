@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
@@ -20,7 +21,9 @@ class LoginCubit extends Cubit<LoginState> {
         },
       );
 
-      log(res.statusCode.toString());
+      log(res.statusCode.toString(), name: "Status Code");
+      log(jsonDecode(res.body).toString(), name: "response");
+
       if (res.statusCode == 400) {
         throw Exception("Invalid Email ID or Password");
       }

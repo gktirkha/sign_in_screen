@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../fragments/accoun_fragment.dart';
+import '../fragments/account_fragment.dart';
 
 class LoggedInHome extends StatefulWidget {
   const LoggedInHome({super.key});
