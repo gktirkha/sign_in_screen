@@ -1,3 +1,3 @@
-# sign_in_screen
+# sign in screen
 
-A new Flutter project.
+Simple Sign In screen using flutter and bloc state management
